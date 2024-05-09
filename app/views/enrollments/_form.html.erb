@@ -12,13 +12,23 @@
   <% end %>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
+    <%= form.label :user_id, 'Student', style: "display: block" %>
+    <%= form.select :user_id, @students.pluck(:name, :id), selected: form.object.user_id %>
   </div>
 
   <div>
-    <%= form.label :teacher_id, style: "display: block" %>
-    <%= form.number_field :teacher_id %>
+    <%= form.label :teacher_id, 'Teacher', style: "display: block" %>
+    <%= form.select :teacher_id, @teachers.pluck(:name, :id), selected: form.object.teacher_id %>
+  </div>
+
+  <div>
+    <%= form.label :program_id, 'Program', style: "display: block" %>
+    <%= form.select :program_id, @programs.pluck(:name, :id), selected: form.object.program_id %>
+  </div>
+
+  <div>
+    <%= form.label :favorite, 'Are you want make as favorite teacher?' %>
+    <%= form.check_box :favorite %>
   </div>
 
   <div>
